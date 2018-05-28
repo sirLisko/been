@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+
+import Travels from './components/Travels';
+
+const Title = styled.h1`
+  text-align: center;
+`;
 
 class App extends Component {
   render() {
     return (
       <div>
         <header>
-          <h1 style={{ textAlign: 'center' }}>
+          <Title>
             <span role="img" aria-label="take-off">
               🛫
             </span>{' '}
@@ -13,8 +20,9 @@ class App extends Component {
             <span role="img" aria-label="landing">
               🛬
             </span>
-          </h1>
+          </Title>
         </header>
+        <Travels />
       </div>
     );
   }
