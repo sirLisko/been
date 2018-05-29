@@ -6,7 +6,10 @@ import Search from './Search';
 import Recap from './Recap';
 
 const Container = styled.div`
-  display: block;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `;
 
 class Travels extends Component {
@@ -16,18 +19,23 @@ class Travels extends Component {
       been: [],
     };
     this.addCountry = this.addCountry.bind(this);
+    this.removeCountry = this.removeCountry.bind(this);
   }
 
   addCountry(country) {
-    this.setState({ been: this.state.been.concat(country) });
+    this.setState({ been: [...this.state.been, country] });
+  }
+
+  removeCountry(country) {
+    this.setState({ been: this.state.been.filter(been => been !== country) });
   }
 
   render() {
     return (
       <Container>
         <Search addCountry={this.addCountry} />
-        <Recap countries={this.state.been} />
         <Map countries={this.state.been} />
+        <Recap countries={this.state.been} removeCountry={this.removeCountry} />
       </Container>
     );
   }

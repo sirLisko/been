@@ -1,10 +1,37 @@
 import React, { Component } from 'react';
 import PropTypes from 'proptypes';
+import styled from 'styled-components';
 
 import Autocomplete from 'react-autocomplete';
 import FlagIcon from './FlagIcon';
 
 import countries from '../utils/countries';
+
+const SearchBox = styled.div`
+  input {
+    -webkit-appearance: none;
+    background-color: none;
+    border: 1px solid #ff4a56;
+    font-size: 1rem;
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: 60px;
+    font-weight: 100;
+    letter-spacing: 0.01em;
+    position: relative;
+    z-index: 1;
+    outline: 0;
+  }
+`;
+
+const SearchItem = styled.div`
+  background: ${props => props.isHighlighted && 'lightgray'};
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+`;
 
 class Search extends Component {
   constructor(props) {
@@ -14,13 +41,12 @@ class Search extends Component {
     };
     this.menuStyle = {
       borderRadius: '3px',
-      boxShadow: '0 2px 12px rgba(0, 0, 0, 0.1)',
-      background: 'rgba(255, 255, 255, 0.9)',
       padding: '2px 0',
       fontSize: '90%',
       position: 'fixed',
       overflow: 'auto',
-      maxHeight: '50%',
+      maxHeight: '25%',
+      width: '200px',
       zIndex: 100,
     };
     this.onSelect = this.onSelect.bind(this);
@@ -28,12 +54,13 @@ class Search extends Component {
 
   renderItem(item, isHighlighted) {
     return (
-      <div
+      <SearchItem
         key={item.code}
-        style={{ background: isHighlighted ? 'lightgray' : 'white' }}
+        title={item.name}
+        isHighlighted={isHighlighted}
       >
         <FlagIcon code={item.code.toLowerCase()} /> {item.name}
-      </div>
+      </SearchItem>
     );
   }
 
@@ -44,6 +71,7 @@ class Search extends Component {
 
   render() {
     return (
+      <SearchBox>
         <Autocomplete
           getItemValue={item => item.name}
           items={countries}
@@ -56,6 +84,7 @@ class Search extends Component {
           onSelect={this.onSelect}
           menuStyle={this.menuStyle}
         />
+      </SearchBox>
     );
   }
 }

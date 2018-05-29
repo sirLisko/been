@@ -1,12 +1,14 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'proptypes';
 import styled from 'styled-components';
 
+import FlagIcon from './FlagIcon';
+
 import allCountries from '../utils/countries';
 
-const CountryName = styled.span`
-  color: red;
-`;
+const ListOfCountries = styled.div``;
+
+const CountryName = styled.div``;
 
 const Recap = props => {
   const beenTo = allCountries.filter(country =>
@@ -14,16 +16,19 @@ const Recap = props => {
   );
 
   const Cont = beenTo.map(country => (
-    <div key={country.code}>
-      {country.code} - <CountryName>{country.name}</CountryName>
-    </div>
+    <CountryName
+      key={country.code}
+      onClick={() => props.removeCountry(country.code)}
+    >
+      <FlagIcon code={country.code.toLowerCase()} /> {country.name}
+    </CountryName>
   ));
 
   return (
-    <Fragment>
-      <div>{Cont.length}</div>
-      {Cont}
-    </Fragment>
+    <div>
+      <div># {Cont.length}</div>
+      <ListOfCountries>{Cont}</ListOfCountries>
+    </div>
   );
 };
 

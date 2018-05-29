@@ -6,6 +6,7 @@ import Toast from 'tui-chart';
 import 'tui-chart/dist/maps/world';
 
 const Chart = styled.div`
+  pointer-events: none;
   div {
     margin: 0 auto;
   }
