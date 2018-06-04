@@ -10,6 +10,7 @@ const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 `;
 
 class Travels extends Component {
