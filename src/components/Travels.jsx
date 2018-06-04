@@ -23,6 +23,15 @@ class Travels extends Component {
     this.removeCountry = this.removeCountry.bind(this);
   }
 
+  componentDidMount() {
+    const countries = localStorage.getItem('countries');
+    countries && this.setState({ been: JSON.parse(countries) });
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem('countries', JSON.stringify(this.state.been));
+  }
+
   addCountry(country) {
     this.setState({ been: [...this.state.been, country] });
   }
