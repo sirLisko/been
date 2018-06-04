@@ -2,8 +2,10 @@
   "name": "been",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://sirlisko.github.io/been",
   "dependencies": {
     "country-list": "^1.1.0",
+    "gh-pages": "^1.2.0",
     "proptypes": "^1.1.0",
     "react": "^16.3.2",
     "react-autocomplete": "^1.8.1",
@@ -14,6 +16,8 @@
     "tui-chart": "^3.1.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
