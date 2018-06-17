@@ -42,10 +42,12 @@ class Map extends PureComponent {
     var container = document.getElementById('chart-area');
     container.innerHTML = '';
 
-    const series = this.props.countries.map(country => ({
-      code: country,
-      data: 1,
-    }));
+    const series =
+      this.props.countries.length &&
+      this.props.countries.map(country => ({
+        code: country,
+        data: 1,
+      }));
 
     this.chart = Toast.mapChart(container, { series }, this.options);
   }
