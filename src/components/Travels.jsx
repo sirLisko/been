@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import firebase from 'firebase';
 
 import base, { firebaseApp } from '../base';
-import Login from './Login';
+import Login from './auth/Login';
 
 import Map from './Map';
 import Search from './Search';
