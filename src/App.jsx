@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Travels from './components/Travels';
 
 const Title = styled.h1`
+  font-family: 'Pacifico', cursive;
   text-align: center;
 `;
 
@@ -16,7 +17,7 @@ class App extends Component {
             <span role="img" aria-label="take-off">
               🛫
             </span>{' '}
-            BEEN{' '}
+            Been{' '}
             <span role="img" aria-label="landing">
               🛬
             </span>

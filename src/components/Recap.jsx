@@ -3,6 +3,7 @@ import PropTypes from 'proptypes';
 import styled from 'styled-components';
 
 import FlagIcon from './FlagIcon';
+import Stats from './Stats';
 
 import allCountries from '../utils/countries';
 
@@ -68,7 +69,7 @@ const Recap = props => {
 
   return (
     <div>
-      <div style={{ textAlign: 'center' }}># {Cont.length}</div>
+      <Stats allCountries={allCountries} beenTo={beenTo} />
       <ListOfCountries>{Cont}</ListOfCountries>
     </div>
   );
