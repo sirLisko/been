@@ -12,6 +12,7 @@
     "react-dom": "^16.3.2",
     "react-flag-icon-css": "^1.0.23",
     "react-scripts": "1.1.4",
+    "react-window-size-listener": "^1.2.1",
     "styled-components": "^3.3.0",
     "tui-chart": "^3.1.1"
   },
