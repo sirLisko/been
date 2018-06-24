@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 
 import base, { firebaseApp } from '../base';
 import Login from './auth/Login';

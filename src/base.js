@@ -1,7 +1,9 @@
 /* globals process */
 
 import Rebase from 're-base';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
 
 const firebaseApp = firebase.initializeApp({
   apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
