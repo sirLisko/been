@@ -13,21 +13,30 @@ const Chart = styled.div`
     width: 100%;
   }
   path {
+    cursor: pointer;
     stroke: #ccc;
   }
 `;
 
 class Map extends PureComponent {
   render() {
-    const countries = countriesShapes.map(country => (
-      <path
-        key={country.id}
-        d={country.shape}
-        style={{
-          fill: this.props.countries.includes(country.id) ? '#D74076' : '#EEE',
-        }}
-      />
-    ));
+    const countries = countriesShapes.map(country => {
+      const isSelected = this.props.countries.includes(country.id);
+      return (
+        <path
+          key={country.id}
+          d={country.shape}
+          style={{
+            fill: isSelected ? '#D74076' : '#EEE',
+          }}
+          onClick={() =>
+            isSelected
+              ? this.props.removeCountry(country.id)
+              : this.props.addCountry(country.id)
+          }
+        />
+      );
+    });
     return (
       <Chart>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1025 650">
@@ -40,6 +49,8 @@ class Map extends PureComponent {
 
 Map.propTypes = {
   countries: PropTypes.arrayOf(PropTypes.string).isRequired,
+  addCountry: PropTypes.func.isRequired,
+  removeCountry: PropTypes.func.isRequired,
 };
 
 export default Map;
