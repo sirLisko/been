@@ -1,72 +1,39 @@
-import React, { Fragment, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'proptypes';
 import styled from 'styled-components';
 
-import WindowSizeListener from 'react-window-size-listener';
-
-import Toast from 'tui-chart';
-import 'tui-chart/dist/maps/world';
+import countriesShapes from '../utils/countriesShapes';
 
 const Chart = styled.div`
-  pointer-events: none;
-  padding-left: 5vw;
-  div {
-    margin: 0 auto;
+  margin: 3rem;
+  width: 90%;
+  max-width: 900px;
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+  path {
+    stroke: #ccc;
   }
 `;
 
 class Map extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.options = {
-      chart: {
-        width: 900,
-        height: 700,
-      },
-      map: 'world',
-      legend: {
-        visible: false,
-      },
-    };
-  }
-
-  componentDidUpdate() {
-    this.createMap();
-  }
-
-  componentDidMount() {
-    this.createMap();
-  }
-
-  createMap() {
-    var container = document.getElementById('chart-area');
-    container.innerHTML = '';
-
-    const series =
-      this.props.countries.length &&
-      this.props.countries.map(country => ({
-        code: country,
-        data: 1,
-      }));
-
-    this.chart = Toast.mapChart(container, { series }, this.options);
-  }
-
   render() {
+    const countries = countriesShapes.map(country => (
+      <path
+        key={country.id}
+        d={country.shape}
+        style={{
+          fill: this.props.countries.includes(country.id) ? '#D74076' : '#EEE',
+        }}
+      />
+    ));
     return (
-      <Fragment>
-        <WindowSizeListener
-          onResize={({ windowWidth }) => {
-            const width = windowWidth > 900 ? 900 : windowWidth;
-            this.chart &&
-              this.chart.resize({
-                width: width,
-                height: width / 1.2,
-              });
-          }}
-        />
-        <Chart id="chart-area" />
-      </Fragment>
+      <Chart>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1025 650">
+          {countries}
+        </svg>
+      </Chart>
     );
   }
 }
