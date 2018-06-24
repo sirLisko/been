@@ -51,6 +51,10 @@ const CountryName = styled.div`
 `;
 
 const Recap = props => {
+  if (!props.countries.length) {
+    return null;
+  }
+
   const beenTo = allCountries.filter(country =>
     props.countries.includes(country.code),
   );
