@@ -5,8 +5,8 @@
   "homepage": "https://sirlisko.github.io/been",
   "dependencies": {
     "country-list": "^1.1.0",
-    "gh-pages": "^1.2.0",
     "firebase": "^5.0.2",
+    "gh-pages": "^1.2.0",
     "proptypes": "^1.1.0",
     "re-base": "^3.2.2",
     "react": "^16.3.2",
@@ -14,9 +14,7 @@
     "react-dom": "^16.3.2",
     "react-flag-icon-css": "^1.0.23",
     "react-scripts": "1.1.4",
-    "react-window-size-listener": "^1.2.1",
-    "styled-components": "^3.3.0",
-    "tui-chart": "^3.1.1"
+    "styled-components": "^3.3.0"
   },
   "scripts": {
     "predeploy": "npm run build",
