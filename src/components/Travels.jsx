@@ -7,6 +7,7 @@ import Login from './auth/Login';
 
 import Map from './Map';
 import Search from './Search';
+import Stats from './Stats';
 import Recap from './Recap';
 
 const Logout = styled.a`
@@ -114,12 +115,13 @@ class Travels extends Component {
         {!this.state.uid &&
           !this.state.loading && <Login authenticate={this.authenticate} />}
         {this.state.uid && <Logout onClick={this.logout}>Logout</Logout>}
-        <Search addCountry={this.addCountry} />
         <Map
           countries={this.state.countries}
           addCountry={this.addCountry}
           removeCountry={this.removeCountry}
         />
+        {!this.state.loading && <Stats countries={this.state.countries} />}
+        {!this.state.loading && <Search addCountry={this.addCountry} />}
         <Recap
           countries={this.state.countries}
           removeCountry={this.removeCountry}

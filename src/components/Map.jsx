@@ -15,6 +15,9 @@ const Chart = styled.div`
   path {
     cursor: pointer;
     stroke: #ccc;
+    :hover {
+      opacity: 0.7;
+    }
   }
 `;
 
