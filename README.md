@@ -1,6 +1,6 @@
 # 🛫 BEEN 🛬
 
-> [https://sirlisko.github.io/been/](https://sirlisko.github.io/been/) - Keep track of where you have BEEN 🌍 🌎 🌏.
+> [https://https://been.netlify.com/](https://https://been.netlify.com/) - Keep track of where you have BEEN 🌍 🌎 🌏.
 
 ## Build
 
