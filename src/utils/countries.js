@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-undef
-const countries = require('country-list')().getData();
+import { getData } from 'country-list';
 
-export default countries;
+export default getData();
