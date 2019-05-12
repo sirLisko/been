@@ -42,7 +42,7 @@ class Map extends PureComponent {
     });
     return (
       <Chart>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1025 650">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1001">
           {countries}
         </svg>
       </Chart>
