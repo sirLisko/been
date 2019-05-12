@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'proptypes';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import countriesShapes from '../utils/countriesShapes';
+import countriesShapes from 'world-map-country-shapes';
 
 const Chart = styled.div`
   margin: 3rem;
